@@ -43,6 +43,7 @@ li {
     display: grid;
     place-items: center;
     font-size: 2rem;
+    min-height: 100px;
 }
 
 .add:hover {
@@ -68,6 +69,14 @@ dialog div {
 }
 
 .remove {
-    justify-self: center;
+    width: max-content;
+    margin-left: 10px;
     margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: var(--non-photo-blue);
+    border: 1px solid var(--chamoisee);
+}
+
+.remove:hover {
+    cursor: pointer;
 }
