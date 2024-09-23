@@ -1,0 +1,73 @@
+:root {
+    --chamoisee: #a57548ff;
+    --light-orange: #fcd7adff;
+    --peach: #f6c28bff;
+    --blue-munsell: #5296a5ff;
+    --non-photo-blue: #82ddf0ff;
+    font-family: monospace;
+}
+
+body {
+    background-color: var(--chamoisee);
+}
+
+h1 {
+    color: var(--light-orange);
+    text-align: center;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 10px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.card {
+    background-color: var(--peach);
+    border-radius: 10px;
+    display: grid;
+}
+
+ul {
+    padding-left: 10px;
+}
+
+li {
+    list-style: none;
+}
+
+.add {
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+}
+
+.add:hover {
+    cursor: pointer;
+    background-color: var(--non-photo-blue);
+}
+
+dialog {
+    background-color: var(--blue-munsell);
+    border-radius: 10px;
+    border: 3px solid black;
+    
+}
+
+dialog::backdrop {
+    background-color: black;
+    opacity: 0.5;
+}
+
+dialog div {
+    display: flex;
+    flex-direction: column;
+}
+
+.remove {
+    justify-self: center;
+    margin-bottom: 10px;
+}
