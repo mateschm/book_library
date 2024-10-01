@@ -8,26 +8,7 @@ const dialog = document.querySelector(`dialog`);
 
 const modalButton = document.querySelector(`dialog button`);
 
-const myLibrary = [
-    {
-        author: `Andrzej Sapkowski`,
-        title: `Miecz przeznaczenia`,
-        pages: 300,
-        status: `read`,
-    },
-    {
-        author: `George Orwell`,
-        title: `1984`,
-        pages: 400,
-        status: `read`,
-    },
-    {
-        author: `Aldous Huxley`,
-        title: `New Brave World`,
-        pages: 200,
-        status: `not read`,
-    }
-];
+const myLibrary = [];
 
 let i = 0;
 
@@ -59,6 +40,11 @@ function Book(author, title, pages, status) {
   this.title = title;
   this.pages = pages;
   this.status = status;
+}
+
+Book.prototype.changeStatus = function() {
+    this.status = (this.status === 'read') ? 'not read' : 'read';
+    createLibrary(); // Refresh to show updated status
 }
 
 function showDialog() {
@@ -101,10 +87,20 @@ function createLibrary(){
         });
         card.appendChild(removeButton);
         for (const property in book) {
+            if (property === `changeStatus`) {
+                continue;
+            }
             const prop = document.createElement(`li`);
             properties.appendChild(prop);
             prop.textContent = `${property}: ${book[property]}`;
+            if (property === `status`) {
+                prop.setAttribute(`class`, `status`)
+                prop.addEventListener(`click`, () => {
+                    book.changeStatus(); // Change status when clicked
+                });
+            }   
         }
         i++;
     }
 }
+

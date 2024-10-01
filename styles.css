@@ -75,8 +75,14 @@ dialog div {
     border-radius: 10px;
     background-color: var(--non-photo-blue);
     border: 1px solid var(--chamoisee);
+    height: max-content;
+    margin-top: auto;
 }
 
 .remove:hover {
+    cursor: pointer;
+}
+
+.status:hover {
     cursor: pointer;
 }
